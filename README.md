@@ -7,6 +7,7 @@ This project investigates how molecular descriptors correlate with Boron trifluo
 - Input: `BF3_Affinity_Dataset.csv`
 - Target: `BF3_Affinity(kJ/mol)`
 - Features: a mix of discrete (e.g., `MW`, `AMW`, `TPSA(Tot)`, `ALOGP`) and continuous descriptors (see notebook for full list).
+- Target summary (dataset): mean ≈ 87.63 kJ/mol, SD ≈ 23.86 kJ/mol.
 
 ### Descriptor–Target Correlation (absolute r)
 - Discrete descriptors: mean 0.156, SD 0.090, max 0.411, min 0.0069
@@ -25,6 +26,15 @@ Train/test split uses stratified shuffling over binned target values; cross-vali
   - Cross-validation: mean R = 0.911 ± 0.036; mean RMSE = 9.71 kJ/mol
 
 **Takeaway**: Ridge shows slightly better generalization (higher CV R, lower CV RMSE) and lower test MAPE in this setup.
+
+### Conclusions (from project report)
+- Molecular BF3 affinity can be reliably predicted from standard molecular descriptors with strong correlation on hold-out tests (R ≈ 0.86–0.90) and low error (MAPE ≈ 7–8%).
+- Regularized linear modeling (Ridge) provides a robust baseline with the best overall cross-validated performance here; tree-based boosting is competitive.
+- Physicochemical descriptor families (size/mass, polarity/surface area, lipophilicity) collectively drive predictive signal; no single descriptor dominates globally.
+
+### Notes and limitations
+- Results depend on the provided dataset composition and descriptor set; external validation on new chemotypes is recommended before deployment.
+- Hyperparameters were lightly tuned; further optimization or ensembling may improve performance.
 
 ### Reproducibility
 Open and run `code.ipynb`.
