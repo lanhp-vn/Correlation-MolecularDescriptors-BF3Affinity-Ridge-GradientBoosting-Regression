@@ -27,7 +27,7 @@ Train/test split uses stratified shuffling over binned target values; cross-vali
 
 **Takeaway**: Ridge shows slightly better generalization (higher CV R, lower CV RMSE) and lower test MAPE in this setup.
 
-### Conclusions (from project report)
+### Conclusions
 - Molecular BF3 affinity can be reliably predicted from standard molecular descriptors with strong correlation on hold-out tests (R ≈ 0.86–0.90) and low error (MAPE ≈ 7–8%).
 - Regularized linear modeling (Ridge) provides a robust baseline with the best overall cross-validated performance here; tree-based boosting is competitive.
 - Physicochemical descriptor families (size/mass, polarity/surface area, lipophilicity) collectively drive predictive signal; no single descriptor dominates globally.
@@ -35,12 +35,5 @@ Train/test split uses stratified shuffling over binned target values; cross-vali
 ### Notes and limitations
 - Results depend on the provided dataset composition and descriptor set; external validation on new chemotypes is recommended before deployment.
 - Hyperparameters were lightly tuned; further optimization or ensembling may improve performance.
-
-### Reproducibility
-Open and run `code.ipynb`.
-Dependencies: numpy, pandas, matplotlib, scikit-learn.
-
-### Repository
-Code and results are synchronized to `lanhp-vn/Correlation-MolecularDescriptors-BF3Affinity-Ridge-GradientBoosting-Regression` on GitHub. See the repo here: [GitHub repository](https://github.com/lanhp-vn/Correlation-MolecularDescriptors-BF3Affinity-Ridge-GradientBoosting-Regression).
 
 
